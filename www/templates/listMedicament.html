@@ -1,0 +1,31 @@
+<ion-view view-title="Lista de Remédios">
+  <ion-content>
+    <ion-list>
+      <button style="height:100px; width:49%;" class="button button-stable" ng-click="backMedicament()">
+        <img src="img/back.png" align="left" height="45"/><font size="6">Voltar</font>
+      </button>
+      <button style="height:100px; width:49%;" class="button button-balanced" ng-click="createMedicament()">
+        <img src="img/plus.png" align="left" height="45"/><font size="6">Novo</font>
+      </button>
+      <ion-item class=" item-thumbnail-left item-icon-right item-button-right" ng-repeat="remedio in remedios | filter:{expired:filterValue}:true" type="item-text-wrap" ng-click="updateMedicament(remedio)">
+
+        <!-- ng-click="alterMedicament(remedio)" href="templates/createMedicament/{{remedio.id}}" -->
+        <!-- <img ng-src="../img/ionic.png"> --> 
+        <img ng-src="data:image/jpeg;base64,{{remedio.picture_medicament}}">
+        <font size="5" class="item-text-center-horizontal item-text-center-vertical color-mfblue">{{remedio.name}}</font>
+        <!-- <p class="color-mfblue">{{remedio.expirationDate}}</p> -->
+        <!-- <i class="icon ion-chevron-right icon-accessory"></i> -->
+        <!-- <ion-button class="button-assertive color-background-mflightblue" ng-click="">
+          Tomei
+        </ion-button> -->
+        <button class="button button-assertive" style="background-color:red; height:80px; width:70px;" ng-click="remove(remedio)">
+                <img src="img/delete.png" align="right" height="55"/>
+                <!-- <i class="icon ion-trash-a"></i><font size="2">Excluir</font> -->
+            </button>
+        <!-- <ion-button class="button-energized" style="background-color: red" ng-click="remove(remedio)">
+          Excluir
+        </ion-button> -->
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,22 @@
+<ion-tabs class="tabs-icon-top tabs-background-assertive tabs-color-light">
+  <button class="button button-outline button-assertive icon ion-plus-round posicao-botao round-button"
+          ng-click="showAction()">
+  </button>
+
+  <!-- Remédio Tab -->
+  <ion-tab title="Remédios"
+           icon-off="icone-remedio-off"
+           icon-on="icone-remedio-on"
+           ui-sref="tab.remedio">
+    <ion-nav-view name="tab-remedio"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Alertas Tab -->
+  <ion-tab title="Alertas"
+           icon-off="icone-alerta-off"
+           icon-on="icone-alerta-on"
+           ui-sref="tab.alerta">
+    <ion-nav-view name="tab-alerta"></ion-nav-view>
+  </ion-tab>
+
+</ion-tabs>

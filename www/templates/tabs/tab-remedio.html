@@ -1,0 +1,50 @@
+<!--<ion-view view-title="DOSE CERTA">
+
+  <div class="platform-android bar-custom bar bar-subheader">
+    <div class="button-bar">
+      <a class="button button-outline button-assertive" ng-click="filterValue = 0"
+         ng-class="{active: filterValue == 0}">Válidos</a>
+      <a class="button button-outline button-assertive" ng-click="filterValue = 1"
+         ng-class="{active: filterValue == 1}">Vencidos</a>
+    </div>
+  </div>-->
+
+  <!--<ion-nav-buttons side="primary">
+    <button ng-if="isAndroid === true" class="button button-icon icon ion-plus" ng-click="createMedicament()"></button>
+  </ion-nav-buttons>-->
+
+  <!--<ion-content class="has-header has-subheader">
+    <ion-list>
+      <ion-item class=" item-thumbnail-left item-icon-right" ng-repeat="remedio in remedios | filter:{expired:filterValue}:true" type="item-text-wrap" href="#/tab/remedios/{{remedio.id}}">
+        <img ng-src="../img/ionic.png">
+        <h2 class="item-text-center-vertical color-mfblue">{{remedio.name}}</h2>
+        <p class="color-mfblue">{{remedio.expirationDate}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+        <ion-option-button class="button-assertive color-background-mflightblue" ng-click="">
+          Tomei
+        </ion-option-button>
+        <ion-option-button class="button-assertive" ng-click="remove(remedio)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>-->
+<ion-view view-title="LEMBRADOR">
+  <ion-content>
+    <ion-list >
+      <div style="height:45px; class="bar bar-header bar-stable">
+      </div>
+      <button style="height:160px; line-height: 80px" class="button button-block button-positive" ng-click="listMedicament()">
+          <img src="img/drug.png" align="left" height="100"/> <font size="30">Remédios</font>
+      </button>
+      <button style="height:160px; line-height: 80px" class="button button-block button-positive" ng-click="listAlert()">
+        <img src="img/alarm.png" align="left" height="100"/> <font size="30">Alertas</font>
+      </button>
+      <button style="height:160px; line-height: 80px" class="button button-block button-positive" ng-click="listPharmacy()">
+        <img src="img/drugstore.png" align="left" height="100"/> <font size="30">Farmácias</font>
+      </button>
+    </ion-list >
+  </ion-content>
+</ion-view>
+

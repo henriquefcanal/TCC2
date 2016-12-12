@@ -1,0 +1,49 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.br.app.minifarma"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.br.app.minifarma"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.br.app.minifarma"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.br.app.minifarma"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.br.app.minifarma"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.br.app.minifarma"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "com.br.app.minifarma"
+        },
+        "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "com.br.app.minifarma"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.br.app.minifarma"
+        },
+        "org.nypr.cordova.wakeupplugin": {
+            "PACKAGE_NAME": "com.br.app.minifarma"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-app-event": {
+            "PACKAGE_NAME": "com.br.app.minifarma"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.br.app.minifarma"
+        }
+    }
+}

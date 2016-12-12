@@ -1,0 +1,28 @@
+<ion-view view-title="Lista de Farmácias">
+  <ion-content>
+    <ion-list>
+      <button style="height:100px; width:49%;" class="button button-stable" ng-click="backMedicament()">
+        <img src="img/back.png" align="left" height="45"/><font size="6">Voltar</font>
+      </button>
+      <button style="height:100px; width:49%;" class="button button-balanced" ng-click="createPharmacy()">
+        <img src="img/plus.png" align="left" height="45"/><font size="6">Novo</font>
+      </button>
+      <ion-item class="item-icon-right item-button-right"
+                ng-repeat="farmacia in farmacias"
+                type="item-text-wrap"
+                ng-click="updatePharmacy(farmacia)"">
+        <!-- <img ng-src="../img/ionic.png"> -->
+        <font size="5" class="item-text-center-vertical color-mfblue" ng-init="getPharmacyName(farmacia)">{{farmacia.name}}</font>
+        <!-- <h2 class="item-text-center-vertical color-mfblue" ng-init="getPharmacyName(farmacia)">{{ farmacia.name }} </h2> -->
+        <i class="icon ion-chevron-right icon-accessory"></i>
+        <button class="button button-assertive" style="background-color:red; height:80px; width:70px;" ng-click="remove(farmacia)">
+          <img src="img/delete.png" align="right" height="55"/>
+        </button>
+
+        <!-- <ion-option-button class="button-assertive" ng-click="remove(farmacia)">
+          Delete
+        </ion-option-button> -->
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,12 @@
+{
+  "name": "mfIonic",
+  "app_id": "01a316f6",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

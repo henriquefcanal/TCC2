@@ -1,0 +1,24 @@
+<ion-view view-title="Farmácia">
+
+  <ion-nav-buttons side="secondary">
+    <button class="button-icon icon ion-ios-plus-empty light" type="button" ng-click=""></button>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <ion-list show-delete="shouldShowDelete">
+      <ion-item ng-repeat="pharmacy in pharmacys"
+                ng-click="select(pharmacy.name, pharmacy.id)">
+        <h2 class="color-mfblue">{{pharmacy.name}}</h2>
+        <ion-option-button class="button-assertive"
+                           style="background-color:#ef473a"
+                           ng-click="share(item)">
+          Apagar
+        </ion-option-button>
+        <ion-delete-button class="ion-minus-circled"
+                           ng-click="items.splice($index, 1)">
+        </ion-delete-button>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

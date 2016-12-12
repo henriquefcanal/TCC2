@@ -1,0 +1,24 @@
+<ion-view view-title="Remédio">
+
+  <ion-nav-buttons side="secondary">
+    <button class="button-icon icon ion-ios-plus-empty light" type="button" ng-click=""></button>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <ion-list show-delete="shouldShowDelete">
+      <ion-item ng-repeat="medicament in medicaments"
+                ng-click="select(medicament.name, medicament.id)">
+        <h2 class="color-mfblue">{{medicament.name}}</h2>
+        <ion-option-button class="button-assertive"
+                           style="background-color:#ef473a"
+                           ng-click="share(item)">
+          Apagar
+        </ion-option-button>
+        <ion-delete-button class="ion-minus-circled"
+                           ng-click="items.splice($index, 1)">
+        </ion-delete-button>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

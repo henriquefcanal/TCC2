@@ -1,0 +1,110 @@
+<ion-view view-title="Novo Alerta">
+
+  <!-- <ion-nav-buttons side="primary">
+    <button class="button button-clear" ng-click="cancelCreate()">Cancelar</button>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="secondary">
+    <button class="button button-clear"
+            type="submit"
+            form="createAlertForm">Salvar</button>
+  </ion-nav-buttons> -->
+
+  <ion-content>
+    <!--Form with floating labels-->
+    <form name="createAlertForm"
+          novalidate=""
+          class="create-form"
+          id="createAlertForm">
+
+      <ion-list >
+
+        <button style="height:100px; width:49%; background-color: red" class="button button-assertive" ng-click="cancelCreate()">
+         <img src="img/cancel.png" align="left" height="30"/><font size="5">Cancelar</font>
+        </button>
+
+        <button style="height:100px; width:49%;" class="button button-balanced" ng-click="addAlert(createAlertForm)">
+          <img src="img/plus.png" align="left" height="45"/><font size=6>Salvar</font>
+        </button>
+
+        <img src="img/barraDataInicio.png" width="100%"/>
+        <label class="item item-icon-right assertive" ng-click="openDatePicker()">
+            Data de Início
+          <span class="item-note calm">
+            {{ alert.startDate | date:'dd/MM/yyyy' }}
+          </span>
+          <i class="icon ion-ios-arrow-forward" style="color: lightgray"></i>
+        </label>
+
+        <label class="item item-icon-right assertive" ng-click="openTimePicker()">
+          Hora de Início
+          <span class="item-note calm">
+            {{ alert.presentCorrectTime }}
+          </span>
+          <i class="icon ion-ios-arrow-forward" style="color: lightgray"></i>
+        </label>
+
+        <!-- Alert Duration -->
+        <img src="img/barraDuracao.png" width="100%"/>
+        <ion-item>
+
+          <div class="row">
+            <div class="col item-input-inset">
+              <label class="item-input-wrapper">
+                <input type="number"
+                name="duration"
+                ng-model="alert.durationNumber" />
+              </label>
+            </div>
+            <div class="col col-80">
+              <div class=" button-bar">
+                <a class="button button-outline button-assertive segmented-collapsed"
+                   ng-click="alert.durationUnity=0"
+                   ng-class="{active: alert.durationUnity == 0}">dia</a>
+                <a class="button button-outline button-assertive segmented-collapsed"
+                   ng-click="alert.durationUnity=1"
+                   ng-class="{active: alert.durationUnity == 1}">semana</a>
+                <a class="button button-outline button-assertive segmented-collapsed"
+                   ng-click="alert.durationUnity=2"
+                   ng-class="{active: alert.durationUnity == 2}">mês</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </ion-item>
+
+        <!-- Alert Interval -->
+        <label class="item item-input item-select">
+          <div class="input-label assertive">
+            Intervalo
+          </div>
+          <select name="interval" style="color: #11c1f3;" ng-model="alert.id_interval">
+            <option value=9>15 segundos</option>
+            <option value=1>1 hora</option>
+            <option value=2>2 horas</option>
+            <option value=3>3 horas</option>
+            <option value=4>4 horas</option>
+            <option value=5>6 horas</option>
+            <option value=6>8 horas</option>
+            <option value=7>12 horas</option>
+            <option value=8>24 horas</option>
+          </select>
+        </label>
+
+        <!-- Alert medicament -->
+        <label class="item item-icon-right assertive"
+               ng-click=""
+               name="medicamentId"
+               ng-model="formData.medicamentId"
+               ui-sref="medicamentsList">
+            Remédio
+          <span class="item-note calm">
+            {{medicament.name}}
+          </span>
+          <i class="icon ion-ios-arrow-forward" style="color: lightgray"></i>
+        </label>
+
+      </ion-list>
+    </form>
+  </ion-content>
+</ion-view>

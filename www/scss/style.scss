@@ -1,0 +1,29 @@
+.create-form {
+  .picture {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.platform-android .bar-custom {
+  top: 93px;
+  border-bottom-width: 0px;
+  border-bottom-style: solid; }
+
+.tabs-striped .tab-item {
+  margin-top: 1px;
+  font-size: 12px;  }
+
+.tabs-striped .tab-item.tab-item-active,
+.tabs-striped > .tabs {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  border-bottom-width: 0px;
+}
+
+.toggle input:checked + .track {
+  background-color:#009ec9;
+  border-color:#009ec9;
+}

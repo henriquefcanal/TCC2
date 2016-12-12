@@ -1,0 +1,170 @@
+<ion-view view-title="Novo Remédio">
+  <ion-content>
+    <!--Form with floating labels-->
+    <form name="updateMedicamentForm"
+          novalidate=""
+          class="create-form"
+          id="updateMedicamentForm">
+
+      <ion-list >
+        <button style="height:100px; width:49%; background-color: red" class="button button-assertive" ng-click="cancelUpdate()">
+         <img src="img/cancel.png" align="left" height="30"/><font size="5">Cancelar</font>
+        </button>
+
+        <button style="height:100px; width:49%;" class="button button-balanced" ng-click="alterMedicament(updateMedicamentForm)">
+          <img src="img/plus.png" align="left" height="45"/><font size=6>Alterar</font>
+        </button>
+
+        <div class="row row-center">
+          <!--Name and Expiration Date-->
+          <div class="col">
+            <!-- medicament Name -->
+            <label class="item item-input item-stacked-label"
+                   ng-class="{'has-error':updateMedicamentForm.name.$invalid}"
+                   style="padding: 6px 0 5px 10px">
+              <input type="text"
+                     placeholder="Digite aqui o nome do remédio"
+                     name="name"
+                     ng-model="medicament.name"
+                     ng-required="true"
+                     ng-minlength="2"
+                     class="text-center color-mfblue"
+                     value="{{medicament.name}}">
+            </label >
+            <div class="form-errors"
+                 ng-messages="updateMedicamentForm.name.$error">
+              <div ng-messages-include="templates/form-errors.html"> </div>
+              <div class="form-error"
+                   ng-message="minlength" >Por favor, insira um nome válido.
+              </div >
+            </div>
+            <br>
+            <!-- Expiration Date -->
+<!--             <label class="item item-input item-stacked-label" style="padding: 6px 0 5px 10px">
+              <input type="text"
+                     placeholder="Selecione aqui a data de Validade"
+                     name="expirationDate"
+                     ng-model="medicament.expiration_date"
+                     formatted-date format="'dd/MM/yyyy'"
+                     class="text-center color-mfblue"
+                     ng-click="openDatePicker()">
+            </label> -->
+
+          </div>
+        </div>
+        <label class="item item-icon-right assertive" ng-click="openDatePicker()">
+            Data de Validade
+          <span class="item-note calm">
+            {{ medicament.expiration_date | date:'dd/MM/yyyy' }}
+          </span>
+          <i class="icon ion-ios-arrow-forward" style="color: lightgray"></i>
+        </label>
+        
+        <label class="item item-icon-right assertive"
+               ng-click=""
+               name="pharmacyId"
+               ng-model="formData.pharmacyId"
+               ui-sref="pharmacysList">
+            Farmácia
+          <span class="item-note calm" ng-init="getPharmacyName(medicament)">
+            {{pharmacy.name}}
+          </span>
+          <i class="icon ion-ios-arrow-forward" style="color: lightgray"></i>
+        </label>
+
+         <!-- Price -->
+         <input type="text" name="field" ng-model="money" ui-money-mask>
+        <label class="item item-input">
+          <div class="row" style="padding-left: 0px">
+            <span class="col col-50 input-label assertive" style="padding-left: 0px; ">Preço</span>
+            <span class="col color-mfblue" style="text-align: right; ">R$</span>
+            <input ng-model="medicament.price"  name="price" class="col col-30 color-mfblue" ng-model="money" ui-money-mask type="number" style="text-align: right;">
+          </div>
+        </label>
+
+        <!-- Quantity -->
+        <label class="item assertive"
+               ng-click="toggleGroup(groups[0])"
+               ng-class="{active: isGroupShown(groups[0])}">
+          Quantidade Embalagem
+          <span class="item-note color-mfblue"> {{ medicament.quantity }} {{ medicament.doseTypeString }}</span>
+        </label>
+        <div class="item-accordion"
+             ng-show="isGroupShown(groups[0])">
+
+          <div class="row">
+            <div class="col item-input-inset">
+              <label class="item-input-wrapper">
+                <input type="number" name="quantity" placeholder="" ng-model="medicament.quantity">
+              </label>
+
+            </div>
+            <div class="col">
+              <div class=" button-bar">
+                <a class="button button-outline button-assertive segmented-collapsed"
+                   name="doseType"
+                   ng-click="medicament.unit = 0; medicament.doseTypeString = 'pilúlas'"
+                   ng-class="{active: medicament.unit == 0}">pilúlas</a>
+                <a class="button button-outline button-assertive segmented-collapsed"
+                   name="doseType"
+                   ng-click="medicament.unit = 2; medicament.doseTypeString = 'ml'"
+                   ng-class="{active: medicament.unit == 2}">ml</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dose -->
+        <label class="item assertive"
+               ng-click="toggleGroup(groups[1])"
+               ng-class="{active: isGroupShown(groups[1])}">
+          Dose
+          <span class="item-note color-mfblue"> {{ medicament.dose }} {{ medicament.doseTypeString }}</span>
+        </label>
+        <div class="item-accordion"
+             ng-show="isGroupShown(groups[1])">
+
+          <div class="row">
+            <div class="col item-input-inset">
+              <label class="item-input-wrapper">
+                <input type="number" name="dose" placeholder="" ng-model="medicament.dose">
+              </label>
+
+            </div>
+            <div class="col">
+              <div class=" button-bar">
+                <a class="button button-outline button-assertive segmented-collapsed"
+                   name="doseType"
+                   ng-click="medicament.unit = 0; medicament.doseTypeString = 'pilúlas'"
+                   ng-class="{active: medicament.unit == 0}">pilúlas</a>
+                <a class="button button-outline button-assertive segmented-collapsed"
+                   name="doseType"
+                   ng-click="medicament.unit = 2; medicament.doseTypeString = 'ml'"
+                   ng-class="{active: medicament.unit == 2}">ml</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add Photo -->
+        <label class="item item-icon-right assertive"
+               ng-click="addMedicamentPicture()()">
+          Foto Remédio
+          <i class="icon ion-checkmark assertive" style="font-size: 16px"
+              ng-if="medicament.picture_medicament"></i>
+        </label>
+
+        <!-- Receipt -->
+        <label class="item item-icon-right assertive"
+               ng-click="addPrescriptionPicture()">
+          Foto Receita
+          <i class="icon ion-checkmark assertive" style="font-size: 16px"
+              ng-if="medicament.picture_prescription"></i>
+        </label>
+
+      </ion-list>
+
+    </form>
+
+  </ion-content>
+</ion-view>

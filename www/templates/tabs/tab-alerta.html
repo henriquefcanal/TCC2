@@ -1,0 +1,37 @@
+<ion-view view-title="Meus Alertas">
+
+<!--   <div class="platform-android bar-custom bar bar-subheader">
+    <div class="button-bar">
+      <a class="button button-outline button-assertive"
+         ng-click="filterValue = 1"
+         ng-class="{active: filterValue == 1}">Ativos</a>
+      <a class="button button-outline button-assertive"
+         ng-click="filterValue = 0"
+         ng-class="{active: filterValue == 0}">Inativos</a>
+    </div>
+  </div> -->
+
+  <ion-nav-buttons side="primary">
+    <button ng-if="isAndroid === true" class="button button-icon icon ion-plus" ng-click="createAlert()"></button>
+  </ion-nav-buttons>
+
+  <ion-content class="has-header has-subheader">
+    <ion-list>
+      <ion-item class="item-thumbnail-left item-icon-right"
+                ng-repeat="alerta in alertas | filter: { active : filterValue } : true"
+                type="item-text-wrap"
+                href="#/tab/alertas/{{alerta.id}}">
+        <img ng-src="../img/ionic.png">
+
+        <h2 class="item-text-center-vertical color-mfblue" ng-init="getMedicamentName(alerta)">{{ alerta.medicament_name }} </h2>
+        <p class="color-mfblue" ng-init="defineNextDate(alerta)">Próxima: {{alerta.nextDoseDate }} </p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(alerta)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+

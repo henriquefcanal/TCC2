@@ -1,0 +1,29 @@
+<ion-view view-title="Lista de Alertas">
+  <ion-content>
+    <ion-list>
+      <button style="height:100px; width:49%;" class="button button-stable" ng-click="backMedicament()">
+        <img src="img/back.png" align="left" height="45"/><font size="6">Voltar</font>
+      </button>
+      <button style="height:100px; width:49%;" class="button button-balanced" ng-click="createAlert()">
+        <img src="img/plus.png" align="left" height="45"/><font size="6">Novo</font>
+      </button>
+      <ion-item class="item-thumbnail-left item-icon-right item-button-right"
+                ng-repeat="alerta in alertas | filter: { active : filterValue } : true"
+                type="item-text-wrap"
+                ng-click="updateAlert(alerta)">
+        <img ng-init="getMedicamentImage(alerta)" ng-src="data:image/jpeg;base64,{{alerta.medicament_image}}">
+        <font size="4" class="item-text-center-horizontal item-text-center-vertical color-mfblue" ng-init="getMedicamentName(alerta)">{{alerta.medicament_name}}</font>
+        <!-- <h2 class="item-text-center-vertical color-mfblue" ng-init="getMedicamentName(alerta)">{{ alerta.medicament_name }} </h2> -->
+        <p class="color-mfblue" ng-init="defineNextDate(alerta)">Próxima: {{alerta.nextDoseDate}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <button class="button button-assertive" style="background-color:red; height:80px; width:65px;" ng-click="remove(alerta)">
+          <img src="img/delete.png" align="right" height="45"/>
+        </button>
+        <!-- <ion-option-button class="button-assertive" ng-click="remove(alerta)">
+          Delete
+        </ion-option-button> -->
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

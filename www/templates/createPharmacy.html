@@ -1,0 +1,65 @@
+<ion-view view-title="Nova Farmácia">
+  <!-- <ion-nav-buttons side="secondary">
+    <button class="button button-clear" ng-click="cancelCreate()">Cancelar</button>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="primary">
+    <button class="button button-clear"
+            type="submit"
+            form="createPharmacyForm">Salvar</button>
+  </ion-nav-buttons> -->
+
+  <ion-content>
+    <!--Form with floating labels-->
+    <form name="createPharmacyForm"
+          novalidate=""
+          class="create-form"
+          id="createPharmacyForm">
+      <ion-list >
+
+      <button style="height:100px; width:49%; background-color: red" class="button button-assertive" ng-click="cancelCreate()">
+         <img src="img/cancel.png" align="left" height="30"/><font size="5">Cancelar</font>
+        </button>
+
+        <button style="height:100px; width:49%;" class="button button-balanced" ng-click="addPharmacy(createPharmacyForm)">
+          <img src="img/plus.png" align="left" height="45"/><font size=6>Salvar</font>
+        </button>
+        <!-- medicament Name -->
+        <label class="item item-input item-stacked-label"
+               ng-class="{'has-error':createPharmacyForm.name.$invalid}" >
+          <span class="input-label" >Nome</span >
+          <input type="text"
+                 placeholder="Nome da Farmácia"
+                 name="name"
+                 ng-model="formData.name"
+                 ng-required="true"
+                 ng-minlength="2">
+        </label >
+        <div class="form-errors"
+                 ng-messages="createPharmacyForm.name.$error">
+              <div ng-messages-include="templates/form-errors.html"> </div>
+              <div class="form-error"
+                   ng-message="minlength" >Por favor, insira um nome válido.
+              </div >
+            </div>
+            <br>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label" >Telefone</span >
+          <input type="tel"
+                 placeholder="Telefone da Farmácia"
+                 name="phone"
+                 ng-model="formData.phone"
+                 ng-required="false"
+                 ng-minlength="8"
+                 mask="(99) 9?9999-9999"
+                 ng-model="number"
+                 ng-pattern="/^[0-9]{1,7}[-\.\/]?+$/">
+        </label>
+      </ion-list>
+    </form>
+    <!--style="position:absolute; top:0;bottom:0;left:0;right:0;"-->
+    <!--style="width: 100%; height: 100%;"-->
+   <!--  <map ng-init="getCurrentLocation()" style/> -->
+
+  </ion-content>
+</ion-view>

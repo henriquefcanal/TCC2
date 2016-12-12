@@ -1,0 +1,95 @@
+/* Empty. Add your own CSS if you like */
+
+.item-text-center-vertical {
+  line-height: 300%;
+}
+
+.icone-remedio-on {
+  background-repeat: no-repeat;
+  background-position:center;
+  background-image: url('../img/lista_remedios_on.png');
+  background-size: contain;
+}
+
+.icone-remedio-off {
+  background-repeat: no-repeat;
+  background-position:center;
+  background-image: url('../img/lista_remedios_off.png');
+  background-size: contain;
+}
+
+.icone-alerta-on {
+  background-repeat: no-repeat;
+  background-position:center;
+  background-image: url('../img/alerta_remedios_on.png');
+  background-size: contain;
+}
+
+.icone-alerta-off {
+  background-repeat: no-repeat;
+  background-position:center;
+  background-image: url('../img/alerta_remedios_off.png');
+  background-size: contain;
+}
+
+.tabs, .color-mfred {
+  color: #ffffff !important;
+  background-color: #0073e6 !important;
+}
+
+.color-mflightred {
+  background-color: #ff0049 !important;
+}
+
+.color-text-mflightblue {
+  color: #00bcfe !important;
+}
+
+.color-background-mflightblue {
+  background-color: #00bcfe !important;
+}
+
+.color-mfblue {
+  color: #009ec9 !important;
+}
+
+.posicao-botao {
+  bottom: 25px;
+  position: absolute;
+  left: 50%;
+  width: 50px;
+  margin-left: -25px; }
+
+.round-button {
+  border-radius: 50%;
+  border: 2px solid #0073e6 !important;
+  overflow: hidden;
+  background: #FFFFFF !important; }
+
+.round-button:active {
+  background: #D3D3D3 !important;
+}
+
+
+/*
+ * http://docs.angularjs.org/api/ng/directive/ngShow#usage_animations
+ */
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+
+.segmented-collapsed {
+  font-size: 13px;
+  line-height: 29px;
+  min-height: 31px;
+}
